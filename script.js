@@ -83,7 +83,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  /* CONFIRMAÇÃO AO CLICAR NO WHATSAPP */
+  /* DETECTAR VOLTA DO WHATSAPP */
+
+  let clicouWhatsapp = false;
 
   const whatsappButtons = document.querySelectorAll('a[href*="wa.me"]');
 
@@ -91,13 +93,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     btn.addEventListener("click", function(){
 
-      setTimeout(() => {
-
-        alert("Obrigado por entrar em contato com a Citadela Doces 🍫✨");
-
-      }, 600);
+      clicouWhatsapp = true;
 
     });
+
+  });
+
+  document.addEventListener("visibilitychange", function(){
+
+    if(!document.hidden && clicouWhatsapp){
+
+      alert("Obrigada por entrar em contato com a Citadela Doces! 🍫✨");
+
+      clicouWhatsapp = false;
+
+    }
 
   });
 
@@ -107,12 +117,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const hero = document.querySelector(".hero");
 
-  window.addEventListener("scroll", () => {
+  if(hero){
 
-    let offset = window.scrollY * 0.3;
+    window.addEventListener("scroll", () => {
 
-    hero.style.backgroundPosition = `center ${offset}px`;
+      let offset = window.scrollY * 0.3;
 
-  });
+      hero.style.backgroundPosition = `center ${offset}px`;
+
+    });
+
+  }
 
 });
