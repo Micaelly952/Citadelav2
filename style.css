@@ -190,8 +190,10 @@ transition:.3s;
 transform:translateY(-6px);
 }
 
+/* IMAGEM DO CARD - PROPORÇÃO AJUSTADA */
+
 .card-img{
-height:200px;
+aspect-ratio:4/3;
 overflow:hidden;
 }
 
@@ -292,6 +294,12 @@ font-size:40px;
 .buttons{
 flex-direction:column;
 align-items:center;
+}
+
+/* IMAGEM QUADRADA NO CELULAR */
+
+.card-img{
+aspect-ratio:1/1;
 }
 
 }
